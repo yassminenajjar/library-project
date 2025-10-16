@@ -1,0 +1,9 @@
+<h1>Add Book</h1>
+{{ form_start(form) }}
+<div class="form-group">{{ form_row(form.title) }}</div>
+<div class="form-group">{{ form_row(form.publicationDate) }}</div>
+<div class="form-group">{{ form_row(form.published) }}</div>
+<div class="form-group">{{ form_row(form.category) }}</div>
+<div class="form-group">{{ form_row(form.author) }}</div>
+    <button class="btn" type='submit'>Save</button>
+{{ form_end(form) }}

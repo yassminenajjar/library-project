@@ -1,0 +1,29 @@
+<h1>list of Books</h1>
+<table border="1" width="100%">
+    <tr> 
+        <th>Title</th>
+        <th>Publication Date</th>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Actions</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</td> 
+        <td>{{ book.published ? 'Yes' : 'No' }}</td> 
+        <td>{{ book.category}}</td> 
+        <td>{{ book.author.username }}</td> 
+        <td>
+            <a href="{{ path('update_book', {'id': book.id}) }}">Edit</a>
+            <a href="{{ path('app_delete_book', {'id': book.id}) }}">Delete</a>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{{ path('add_book') }}">Create New Book</a>
+
+<p>Nombre total de livres publiés </p>
+{% for p in publishedBooksCount %}
+    <p>{{ p }}</p>
+{% endfor %}
